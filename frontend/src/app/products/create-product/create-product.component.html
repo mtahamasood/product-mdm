@@ -1,0 +1,49 @@
+<div class="createProductContainer">
+  <div class="title">
+    <h1>New Product</h1>
+  </div>
+  <div class="productForm">
+    <mat-card>
+      <form [formGroup]="productForm" (ngSubmit)="saveProductHandler()">
+        <div class="singleRow">
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Product Name</mat-label>
+            <input
+              matInput
+              placeholder="Product Name"
+              formControlName="ProductName"
+              required
+            />
+            <mat-error
+              *ngIf="productForm.controls['ProductName'].errors?.required"
+              >Product Name is required</mat-error
+            >
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Box Size</mat-label>
+            <input
+              matInput
+              placeholder="Box Size"
+              formControlName="BoxSize"
+              type="number"
+              required
+            />
+            <mat-error *ngIf="productForm.controls['BoxSize'].errors?.required"
+              >Box Size is required</mat-error
+            >
+          </mat-form-field>
+        </div>
+        <div class="actionButton">
+          <button
+            mat-raised-button
+            color="primary"
+            type="submit"
+            [disabled]="productForm.invalid"
+          >
+            Save
+          </button>
+        </div>
+      </form>
+    </mat-card>
+  </div>
+</div>

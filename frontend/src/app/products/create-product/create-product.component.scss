@@ -1,0 +1,22 @@
+.createProductContainer {
+  padding: 2em 2em;
+  .title {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  .productForm {
+    mat-card {
+      padding: 2em;
+      .singleRow {
+        display: flex;
+        mat-form-field {
+          flex: 1;
+          padding: 0 10px;
+        }
+      }
+      .actionButton {
+        padding: 0 10px;
+      }
+    }
+  }
+}

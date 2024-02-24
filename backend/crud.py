@@ -138,6 +138,7 @@ def update_product(db: Session, product_id: int, product_update: schema.ProductC
     for var, value in vars(product_update).items():
         setattr(db_product, var, value) if value else None
     db.commit()
+    # TODO: Invoke MQTT to synch up the state 
     db.refresh(db_product)
     return db_product
 

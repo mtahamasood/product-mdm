@@ -1,0 +1,47 @@
+<div class="productListContainer">
+  <div class="title">
+    <h1>Product List</h1>
+    <div class="actionButton">
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="createProductHandler()"
+      >
+        Create Product
+      </button>
+    </div>
+  </div>
+  <div class="tableContainer">
+    <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <!-- Name Column -->
+      <ng-container matColumnDef="productName">
+        <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          {{ element.ProductName }}
+        </mat-cell>
+      </ng-container>
+
+      <!-- Box Size Column -->
+      <ng-container matColumnDef="boxSize">
+        <mat-header-cell *matHeaderCellDef> Box Size </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{ element.BoxSize }} </mat-cell>
+      </ng-container>
+
+      <!-- Action Button Column -->
+      <ng-container matColumnDef="action">
+        <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <mat-icon (click)="editProductHandler(element.ProductId)"
+            >edit</mat-icon
+          >
+          <mat-icon (click)="deleteProductHandler(element.ProductId)"
+            >delete</mat-icon
+          >
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+    </mat-table>
+  </div>
+</div>

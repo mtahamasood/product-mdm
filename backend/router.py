@@ -54,6 +54,7 @@ def update_user(user_id: int, user: schema.UserCreate, db: Session = Depends(get
 @router.delete("/users/{user_id}")
 def delete_user(user_id: int, db: Session = Depends(get_db)):
     crud.delete_user(db=db, user_id=user_id)
+    # Sure that invoke MQTT service again to synch up 
     return {"detail": "User deleted successfully"}
 
 # Role routes

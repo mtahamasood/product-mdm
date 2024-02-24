@@ -1,0 +1,16 @@
+.productListContainer {
+  padding: 2em 2em;
+  .title {
+    text-align: center;
+    margin-bottom: 30px;
+    h1 {
+      font-weight: 700;
+    }
+  }
+  .tableContainer {
+    mat-icon {
+      padding: 0 5px;
+      cursor: pointer;
+    }
+  }
+}
